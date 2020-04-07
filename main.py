@@ -1,11 +1,12 @@
 import sys
 import PyQt5
 from PyQt5.QtWidgets import *
-import mainStack
+import customWindow
 from angleScreen import AngleScreen
+from patientListScreen import PatientList
 
 # create class for our Raspberry Pi GUI
-class MainWindow(QMainWindow, mainStack.Ui_MainWindow):
+class MainWindow(QMainWindow, customWindow.Ui_MainWindow):
     # access variables inside of the UI's file
     def __init__(self):
         super(self.__class__, self).__init__()
@@ -37,6 +38,7 @@ class NavigationManager:
         self.window = window
         window.openHome()
         self.angleUI = AngleScreen(window)
+        self.patientListUI = PatientList(window)
 
         self.setupHomeListeners()
         self.setupPatientsListeners()
@@ -45,14 +47,15 @@ class NavigationManager:
 
     def setupHomeListeners(self):
         window = self.window
-        window.patientBtn.clicked.connect(window.openPatients)
+        # window.patientBtn.clicked.connect(window.openPatients)
+        window.patientBtn.clicked.connect(lambda: self.patientListUI.showUI())
         # window.quickMeasureBtn.clicked.connect(window.openAngle)
-        window.quickMeasureBtn.clicked.connect(lambda: self.angleUI.showuI(1))
+        window.quickMeasureBtn.clicked.connect(lambda: self.angleUI.showUI(1))
 
     def setupPatientsListeners(self):
         window = self.window
-        window.patient1_2.clicked.connect(window.openJoints)
-        window.patient2_2.clicked.connect(window.openJoints)
+        # window.patient1_2.clicked.connect(window.openJoints)
+        # window.patient2_2.clicked.connect(window.openJoints)
         window.patientsCancel.clicked.connect(window.openHome)
 
     def setupJointsListeners(self):
@@ -64,8 +67,8 @@ class NavigationManager:
 
     def setupOptionsListeners(self):
         window = self.window
-        window.extension_2.clicked.connect(lambda: self.angleUI.showuI(4))
-        window.flextion_2.clicked.connect(lambda: self.angleUI.showuI(4))
+        window.extension_2.clicked.connect(lambda: self.angleUI.showUI(4))
+        window.flextion_2.clicked.connect(lambda: self.angleUI.showUI(4))
         window.measureTypeCancel.clicked.connect(window.openJoints)
 
 def main():

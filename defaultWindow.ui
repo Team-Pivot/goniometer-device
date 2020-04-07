@@ -18,9 +18,9 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>5</number>
+       <number>1</number>
       </property>
-      <widget class="QWidget" name="home">
+      <widget class="QWidget" name="setup">
        <widget class="QLabel" name="key">
         <property name="geometry">
          <rect>
@@ -85,7 +85,7 @@
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="setup">
+      <widget class="QWidget" name="home">
        <widget class="QPushButton" name="patientBtn">
         <property name="geometry">
          <rect>

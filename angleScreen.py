@@ -1,13 +1,9 @@
-import sys
-import PyQt5
-from PyQt5.QtWidgets import *
-
 class AngleScreen:
     def __init__(self, window):
         self.window = window
         self.sourceIndex = -1
 
-    def showuI(self, source):
+    def showUI(self, source):
         self.sourceIndex = source
         self.window.openAngle()
         self.setupListeners()
