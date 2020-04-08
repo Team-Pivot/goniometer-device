@@ -25,6 +25,10 @@ class PatientList:
         #test values
         response.append({'firstName':'Jeff', 'lastName':'Wongo'})
         response.append({'firstName':'Alan', 'lastName':'Watts'})
+        response.append({'firstName':'Dan', 'lastName':'Dude'})
+        response.append({'firstName':'Dan', 'lastName':'Dude'})
+        response.append({'firstName':'Dan', 'lastName':'Dude'})
+        response.append({'firstName':'Dan', 'lastName':'Dude'})
         d = {}
         y = 0
         window = self.window
@@ -34,7 +38,8 @@ class PatientList:
             else:
                 y += 60
             # print(response[i])
-            d['button{}'.format(i)] = QtWidgets.QPushButton(window.scrollAreaWidgetContents_2)
+            d['button{}'.format(i)] = QtWidgets.QPushButton()
+            d['button{}'.format(i)] = QtWidgets.QPushButton()
             d['button{}'.format(i)].setGeometry(QtCore.QRect(30, y, 351, 41))
             font = QtGui.QFont()
             font.setPointSize(10)
@@ -42,6 +47,7 @@ class PatientList:
             name = response[i]['firstName'] + ' ' + response[i]['lastName']
             _translate = QtCore.QCoreApplication.translate
             d['button{}'.format(i)].setText(_translate("MainWindow", name))
+            window.scrollLayout.addWidget(d['button{}'.format(i)])
             d['button{}'.format(i)].show()
         print(len(d))
         for val in d.values():

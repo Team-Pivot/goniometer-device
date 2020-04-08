@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'mainStack.ui'
+# Form implementation generated from reading ui file 'defaultWindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -68,18 +68,19 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
         self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 409, 179))
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
-        # self.patient1_2 = QtWidgets.QPushButton(self.scrollAreaWidgetContents_2)
-        # self.patient1_2.setGeometry(QtCore.QRect(30, 30, 351, 41))
-        # font = QtGui.QFont()
-        # font.setPointSize(10)
-        # self.patient1_2.setFont(font)
-        # self.patient1_2.setObjectName("patient1_2")
-        # self.patient2_2 = QtWidgets.QPushButton(self.scrollAreaWidgetContents_2)
-        # self.patient2_2.setGeometry(QtCore.QRect(30, 80, 351, 41))
-        # font = QtGui.QFont()
-        # font.setPointSize(10)
-        # self.patient2_2.setFont(font)
-        # self.patient2_2.setObjectName("patient2_2")
+        self.verticalLayoutWidget = QtWidgets.QWidget(self.scrollAreaWidgetContents_2)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 411, 101))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setSpacing(0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.pushButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.pushButton.setObjectName("pushButton")
+        self.verticalLayout.addWidget(self.pushButton)
+        self.pushButton_2 = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.verticalLayout.addWidget(self.pushButton_2)
         self.patientList_2.setWidget(self.scrollAreaWidgetContents_2)
         self.patientListTitle_2 = QtWidgets.QLabel(self.patients)
         self.patientListTitle_2.setGeometry(QtCore.QRect(120, 20, 181, 31))
@@ -183,7 +184,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -194,8 +195,8 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Generated Key:"))
         self.patientBtn.setText(_translate("MainWindow", "Patient List"))
         self.quickMeasureBtn.setText(_translate("MainWindow", "Quick Measurement"))
-        # self.patient1_2.setText(_translate("MainWindow", "Patient 1"))
-        # self.patient2_2.setText(_translate("MainWindow", "Patient 2"))
+        self.pushButton.setText(_translate("MainWindow", "PushButton"))
+        self.pushButton_2.setText(_translate("MainWindow", "PushButton"))
         self.patientListTitle_2.setText(_translate("MainWindow", "Patient List"))
         self.patientsCancel.setText(_translate("MainWindow", "Cancel"))
         self.elbow_2.setText(_translate("MainWindow", "Elbow"))
