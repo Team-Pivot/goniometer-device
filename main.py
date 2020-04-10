@@ -10,6 +10,8 @@ class MainWindow(QMainWindow, customWindow.Ui_MainWindow):
     # access variables inside of the UI's file
     def __init__(self):
         super(self.__class__, self).__init__()
+        # todo: make this into a patient object to store joint, flextion, ect...
+        self.patientId = ''
         self.setupUi(self)
 
     def printName(self):
