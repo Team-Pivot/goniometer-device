@@ -48,13 +48,13 @@ class PatientList:
             d['button{}'.format(i)].setText(_translate("MainWindow", name))
             window.scrollLayout.addWidget(d['button{}'.format(i)])
             id = response[i]['id']
-            d['button{}'.format(i)].clicked.connect(lambda: self.makeSession(id))
+            d['button{}'.format(i)].clicked.connect(lambda: self.setClient(id))
             d['button{}'.format(i)].show()
         print(len(d))
         for val in d.values():
             print(val.parent())
             val.show()
 
-    def makeSession(self, patientId):
-        self.window.patientId = patientId
+    def setClient(self, patientId):
+        self.window.measurement['clientId'] = patientId
         self.window.openJoints()
