@@ -11,7 +11,23 @@ class MainWindow(QMainWindow, customWindow.Ui_MainWindow):
     def __init__(self):
         super(self.__class__, self).__init__()
         # todo: make this into a patient object to store joint, flextion, ect...
-        self.patientId = ''
+        self.jointTypes = {
+            'elbow':'Elbow',
+            'ankle':'Ankle',
+            'knee':'Knee'
+        }
+        self.measurementType = {
+            'flex':'Flextion',
+            'exten':'Extension'
+        }
+        self.measurement = {
+            'angle': 0.0,
+            'endAngle': 0.0,
+            'jointType': '',
+            'measurementType': '',
+            'clientId': '',
+            'clinic':''
+        }
         self.setupUi(self)
 
     def printName(self):
@@ -29,7 +45,13 @@ class MainWindow(QMainWindow, customWindow.Ui_MainWindow):
     def openJoints(self):
         self.stackedWidget.setCurrentIndex(3)
 
-    def openOptions(self):
+    def openOptions(self, jointNum):
+        if (jointNum == 0):
+            self.measurement['jointType'] = self.jointTypes['elbow']
+        elif (jointNum == 1):
+            self.measurement['jointType'] = self.jointTypes['ankle']
+        else:
+            self.measurement['jointType'] = self.jointTypes['knee']
         self.stackedWidget.setCurrentIndex(4)
 
     def openAngle(self):
@@ -62,15 +84,15 @@ class NavigationManager:
 
     def setupJointsListeners(self):
         window = self.window
-        window.elbow_2.clicked.connect(window.openOptions)
-        window.ankle_2.clicked.connect(window.openOptions)
-        window.knee_2.clicked.connect(window.openOptions)
+        window.elbow_2.clicked.connect(lambda: window.openOptions(0))
+        window.ankle_2.clicked.connect(lambda: window.openOptions(1))
+        window.knee_2.clicked.connect(lambda: window.openOptions(2))
         window.jointCancel_2.clicked.connect(window.openPatients)
 
     def setupOptionsListeners(self):
         window = self.window
-        window.extension_2.clicked.connect(lambda: self.angleUI.showUI(4))
-        window.flextion_2.clicked.connect(lambda: self.angleUI.showUI(4))
+        window.extension_2.clicked.connect(lambda: self.angleUI.showUI(4, 0))
+        window.flextion_2.clicked.connect(lambda: self.angleUI.showUI(4, 1))
         window.measureTypeCancel.clicked.connect(window.openJoints)
 
 def main():
