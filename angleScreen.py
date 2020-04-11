@@ -1,16 +1,50 @@
+# from encoder import Encoder
+import requests
+from apiError import ApiError
+
 class AngleScreen:
     def __init__(self, window):
         self.window = window
         self.sourceIndex = -1
+        self.angle = 10
+        # self.encoder = Encoder()
 
-    def showUI(self, source):
+    def showUI(self, source, measurementType):
+        window = self.window
+        measureTypes = self.window.measurementType
+        if (measurementType == 0):
+            window.measurement['measurementType'] = measureTypes['exten']
+        else:
+            window.measurement['measurementType'] = measureTypes['flex']
         self.sourceIndex = source
-        self.window.openAngle()
+        window.openAngle()
         self.setupListeners()
+        # self.encoder.enable()
 
     def setupListeners(self):
         window = self.window
+        window.angleCancel.clicked.connect(self.exit)
+        window.sendBtn.clicked.connect(self.sendMeasurement)
+
+    def exit(self):
+        window = self.window
+        # self.encoder.disable()
+        # self.angle = self.encoder.angle
         if (self.sourceIndex == 1):
-            window.angleCancel.clicked.connect(window.openHome)
+            window.openHome()
         elif (self.sourceIndex == 4):
-            window.angleCancel.clicked.connect(window.openOptions)
+            window.openOptions()
+
+    # TODO: all api calls should be in one locaiton
+    def sendMeasurement(self):
+        print('Sending measurement...')
+        measurementUri = 'http://localhost:3000/v1/clients/{}/measurements'.format(self.window.measurement['clientId'])
+        print(measurementUri)
+        measurement = self.window.measurement
+        measurement['angle'] = float(self.angle)
+        print("About to send: {}".format(measurement))
+        post = requests.post(measurementUri, data = measurement)
+        if post.status_code != 201:
+            raise ApiError('sendMeasurement failed w/ error {}'.format(post.json()))
+        else:
+            print('got a resp: \n{}'.format(post.json()))
