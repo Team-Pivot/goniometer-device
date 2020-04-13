@@ -52,17 +52,17 @@ class Encoder:
 					angle = 0
 					print("angle: {}".format(angle))
 					strAngle = angle + ''
-                    self.window.angle_2.setText(_translate("MainWindow", strAngle))
+					self.window.angle_2.setText(_translate("MainWindow", strAngle))
 				if clkState != clkLastState:
 					dtState = GPIO.input(dt)
 					if dtState != clkState:
-							angle -= 9
+						angle -= 9
 					else:
-							angle += 9
+						angle += 9
 					print("angle: {}".format(angle))
-                    strAngle = angle + ''
-                    self.window.angle_2.setText(_translate("MainWindow", strAngle))
-                self.angle = angle
+					strAngle = angle + ''
+					self.window.angle_2.setText(_translate("MainWindow", strAngle))
+				self.angle = angle
 				clkLastState = clkState
 		finally:
 			GPIO.cleanup()
