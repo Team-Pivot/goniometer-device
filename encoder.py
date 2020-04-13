@@ -51,7 +51,7 @@ class Encoder:
 				if GPIO.event_detected(btn):
 					angle = 0
 					print("angle: {}".format(angle))
-					strAngle = angle + ''
+					strAngle = str(angle)
 					self.window.angle_2.setText(_translate("MainWindow", strAngle))
 				if clkState != clkLastState:
 					dtState = GPIO.input(dt)
@@ -60,7 +60,7 @@ class Encoder:
 					else:
 						angle += 9
 					print("angle: {}".format(angle))
-					strAngle = angle + ''
+					strAngle = str(angle)
 					self.window.angle_2.setText(_translate("MainWindow", strAngle))
 				self.angle = angle
 				clkLastState = clkState
