@@ -4,7 +4,7 @@ import threading
 
 class Encoder:
 	def __init__(self, window):
-        self.window = window
+		self.window = window
 		self.activated = 0
 		self.angle = 0
 		self.clk = -1
