@@ -38,7 +38,7 @@ class AngleScreen:
     # TODO: all api calls should be in one locaiton
     def sendMeasurement(self):
         print('Sending measurement...')
-        measurementUri = 'http://localhost:3000/v1/clients/{}/measurements'.format(self.window.measurement['clientId'])
+        measurementUri = 'http://ec2-18-220-197-38.us-east-2.compute.amazonaws.com:80/v1/clients/{}/measurements'.format(self.window.measurement['clientId'])
         print(measurementUri)
         measurement = self.window.measurement
         measurement['angle'] = float(self.angle)
