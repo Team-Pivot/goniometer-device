@@ -1,7 +1,7 @@
 from RPi import GPIO
 from time import sleep
 import threading
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore
 
 class Encoder:
 	def __init__(self, window):
@@ -43,6 +43,7 @@ class Encoder:
 		dt = self.dt
 		btn = self.btn
 		angle = 0
+		_translate = QtCore.QCoreApplication.translate
 		clkLastState = GPIO.input(clk)
 		try:
 			while self.activated:
