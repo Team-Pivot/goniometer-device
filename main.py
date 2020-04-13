@@ -22,13 +22,15 @@ class MainWindow(QMainWindow, customWindow.Ui_MainWindow):
         }
 
         # session info
+        # make sure to check that clinic value matches what's in db
+        # this won't be hardcoded when route to get clinic is created
         self.measurement = {
             'angle': 0.0,
             'endAngle': 0.0,
             'jointType': '',
             'measurementType': '',
             'clientId': '',
-            'clinic':'58aa8171-7c36-11ea-8966-9828a60a17af'
+            'clinic':'335d156d-7d4a-11ea-b394-064ded82afec'
         }
         self.setupUi(self)
 
