@@ -1,4 +1,4 @@
-# from encoder import Encoder
+from encoder import Encoder
 import requests
 from apiError import ApiError
 
