@@ -1,6 +1,7 @@
 from RPi import GPIO
 from time import sleep
 import threading
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Encoder:
 	def __init__(self, window):
