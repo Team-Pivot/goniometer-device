@@ -9,7 +9,7 @@ class PatientList:
     def __init__(self, window):
         self.window = window
 
-    def showUI(self):
+	def showUI(self):
 		window = self.window
 		window.openPatients()
 		window.patientsCancel.clicked.connect(lambda: window.openHome())
