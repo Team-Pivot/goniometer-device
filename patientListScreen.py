@@ -10,9 +10,10 @@ class PatientList:
         self.window = window
 
     def showUI(self):
-        self.window.openPatients()
+		window = self.window
+        window.openPatients()
+		window.patientsCancel.clicked.connect(lambda: window.openHome())
         self.getPatients()
-        # self.setupListeners()
 
     def getPatients(self):
         resp = requests.get(self.patientsUri)
