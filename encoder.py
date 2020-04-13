@@ -3,7 +3,8 @@ from time import sleep
 import threading
 
 class Encoder:
-	def __init__(self):
+	def __init__(self, window):
+        self.window = window
 		self.activated = 0
 		self.angle = 0
 		self.clk = -1
@@ -50,6 +51,8 @@ class Encoder:
 				if GPIO.event_detected(btn):
 					angle = 0
 					print("angle: {}".format(angle))
+                    strAngle = angle + ''
+                    self.window.angle_2.setText(_translate("MainWindow", strAngle))
 				if clkState != clkLastState:
 					dtState = GPIO.input(dt)
 					if dtState != clkState:
@@ -57,6 +60,9 @@ class Encoder:
 					else:
 							angle += 9
 					print("angle: {}".format(angle))
+                    strAngle = angle + ''
+                    self.window.angle_2.setText(_translate("MainWindow", strAngle))
+                self.angle = angle
 				clkLastState = clkState
 		finally:
 			GPIO.cleanup()

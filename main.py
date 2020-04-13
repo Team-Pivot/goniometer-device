@@ -75,16 +75,8 @@ class NavigationManager:
 
     def setupHomeListeners(self):
         window = self.window
-        # window.patientBtn.clicked.connect(window.openPatients)
         window.patientBtn.clicked.connect(lambda: self.patientListUI.showUI())
-        # window.quickMeasureBtn.clicked.connect(window.openAngle)
         window.quickMeasureBtn.clicked.connect(lambda: self.angleUI.showUI(1))
-
-    def setupPatientsListeners(self):
-        window = self.window
-        # window.patient1_2.clicked.connect(window.openJoints)
-        # window.patient2_2.clicked.connect(window.openJoints)
-        window.patientsCancel.clicked.connect(window.openHome)
 
     def setupJointsListeners(self):
         window = self.window
@@ -103,8 +95,6 @@ def main():
     app = QApplication(sys.argv)
     window = MainWindow()
     navigator = NavigationManager(window)
-    # window.openHome()
-    # window.quickMeasureBtn.clicked.connect(window.openAngle)
     window.show()
     sys.exit(app.exec_())
 
