@@ -69,7 +69,6 @@ class NavigationManager:
         self.patientListUI = PatientList(window)
 
         self.setupHomeListeners()
-        self.setupPatientsListeners()
         self.setupJointsListeners()
         self.setupOptionsListeners()
 
