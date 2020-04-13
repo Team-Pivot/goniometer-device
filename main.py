@@ -47,10 +47,10 @@ class MainWindow(QMainWindow, customWindow.Ui_MainWindow):
     def openJoints(self):
         self.stackedWidget.setCurrentIndex(3)
 
-    def openOptions(self, jointNum):
-        if (jointNum == 0):
+    def openOptions(self, joint):
+        if (joint == 'elbow'):
             self.measurement['jointType'] = self.jointTypes['elbow']
-        elif (jointNum == 1):
+        elif (joint == 'ankle'):
             self.measurement['jointType'] = self.jointTypes['ankle']
         else:
             self.measurement['jointType'] = self.jointTypes['knee']
@@ -86,9 +86,9 @@ class NavigationManager:
 
     def setupJointsListeners(self):
         window = self.window
-        window.elbow_2.clicked.connect(lambda: window.openOptions(0))
-        window.ankle_2.clicked.connect(lambda: window.openOptions(1))
-        window.knee_2.clicked.connect(lambda: window.openOptions(2))
+        window.elbow_2.clicked.connect(lambda: window.openOptions('elbow'))
+        window.ankle_2.clicked.connect(lambda: window.openOptions('ankle'))
+        window.knee_2.clicked.connect(lambda: window.openOptions('knee'))
         window.jointCancel_2.clicked.connect(window.openPatients)
 
     def setupOptionsListeners(self):

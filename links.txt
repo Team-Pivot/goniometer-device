@@ -1,1 +1,3 @@
-https://www.baldengineer.com/raspberry-pi-gui-tutorial.html
+pyqt tutorial: https://www.baldengineer.com/raspberry-pi-gui-tutorial.html
+encoder tutorial: http://codelectron.com/rotary-encoder-with-raspberry-pi/
+lcd tutorial: http://www.lcdwiki.com/3.5inch_RPi_Display

@@ -33,11 +33,12 @@ class AngleScreen:
         if (self.sourceIndex == 1):
             window.openHome()
         elif (self.sourceIndex == 4):
-            window.openOptions()
+            window.openOptions(window.measurement['jointType'])
 
     # TODO: all api calls should be in one locaiton
     def sendMeasurement(self):
         print('Sending measurement...')
+        # measurementUri = 'http://localhost:3000/v1/clients/{}/measurements'.format(self.window.measurement['clientId'])
         measurementUri = 'http://ec2-18-220-197-38.us-east-2.compute.amazonaws.com:80/v1/clients/{}/measurements'.format(self.window.measurement['clientId'])
         print(measurementUri)
         measurement = self.window.measurement
@@ -48,3 +49,4 @@ class AngleScreen:
             raise ApiError('sendMeasurement failed w/ error {}'.format(post.json()))
         else:
             print('got a resp: \n{}'.format(post.json()))
+            self.exit()
