@@ -3,7 +3,8 @@ from apiError import ApiError
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class PatientList:
-    patientsUri = 'http://localhost:3000/v1/clients'
+    # patientsUri = 'http://localhost:3000/v1/clients'
+    patientsUri = 'http://ec2-18-220-197-38.us-east-2.compute.amazonaws.com:80/v1/clients'
 
     def __init__(self, window):
         self.window = window
@@ -50,9 +51,7 @@ class PatientList:
             id = response[i]['id']
             d['button{}'.format(i)].clicked.connect(lambda: self.setClient(id))
             d['button{}'.format(i)].show()
-        print(len(d))
         for val in d.values():
-            print(val.parent())
             val.show()
 
     def setClient(self, patientId):
