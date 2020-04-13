@@ -12,21 +12,23 @@ class MainWindow(QMainWindow, customWindow.Ui_MainWindow):
         super(self.__class__, self).__init__()
         # todo: make this into a patient object to store joint, flextion, ect...
         self.jointTypes = {
-            'elbow':'Elbow',
-            'ankle':'Ankle',
-            'knee':'Knee'
+            'elbow':'elbow',
+            'ankle':'ankle',
+            'knee':'knee'
         }
         self.measurementType = {
-            'flex':'Flextion',
-            'exten':'Extension'
+            'flex':'flexion',
+            'exten':'extension'
         }
+
+        # session info
         self.measurement = {
             'angle': 0.0,
             'endAngle': 0.0,
             'jointType': '',
             'measurementType': '',
             'clientId': '',
-            'clinic':''
+            'clinic':'58aa8171-7c36-11ea-8966-9828a60a17af'
         }
         self.setupUi(self)
 
