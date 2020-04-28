@@ -10,7 +10,7 @@ class AngleScreen:
         self.angle = 10
         self.encoder = Encoder(window)
 
-    def showUI(self, source, measurementType):
+    def showUI(self, source, measurementType = 0):
         window = self.window
         measureTypes = self.window.measurementType
         if (measurementType == 0):
